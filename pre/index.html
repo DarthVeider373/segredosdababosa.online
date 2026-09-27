@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>A Babosa Que Limpa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  body, html {
+    margin: 0; padding: 0;
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(160deg, #0d3320 0%, #0a2818 50%, #0e3222 100%);
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
+    font-size: 18px;
+  }
+  *{ box-sizing: border-box; }
+  .title-font { font-family: 'Cinzel', serif; }
+  .golden-text { color: #d4af37; }
+
+  .overlay-pattern{
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 15%, rgba(212,175,55,.10) 0%, transparent 45%),
+      radial-gradient(circle at 82% 78%, rgba(212,175,55,.08) 0%, transparent 50%);
+  }
+
+  .hero-wrap{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    min-height: 100vh;
+    justify-content: center;
+    width: 100%;
+  }
+  .quote-box, .watch-cta{
+    width: 100%;
+  }
+
+  .eyebrow{
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: #d4af37;
+    margin: 0;
+  }
+
+  h1{
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw + 1rem, 4.4rem);
+    line-height: 1.12;
+    margin: 0;
+    color: #ffffff;
+  }
+  h1 .accent{ color: #d4af37; }
+
+  .quote-box {
+    max-width: 600px;
+    margin: 6px auto 0;
+  }
+  .quote-box p{
+    margin: 0;
+    font-family: 'IM Fell English', Georgia, serif;
+    font-style: italic;
+    font-size: 1.7rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,.92);
+  }
+  .quote-box em{ color: #d4af37; font-style: italic; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #b8870b 0%, #f7de6a 50%, #b8870b 100%);
+    background-size: 200% auto;
+    color: #06103a; border: none; font-weight: bold;
+    box-shadow: 0 4px 18px rgba(212,175,55,0.35);
+    transition: all 0.35s;
+    padding: 20px 40px;
+    font-size: 1.35rem;
+    border-radius: 30px;
+    font-family: 'Cinzel', serif;
+    text-decoration: none;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background-position: right center;
+    box-shadow: 0 7px 28px rgba(212,175,55,0.55);
+    transform: translateY(-3px);
+    color: #06103a;
+  }
+  .btn-primary:focus-visible{ outline: 2px solid #d4af37; outline-offset: 3px; }
+  .btn-primary svg{ width: 18px; height: 18px; }
+
+  .reassure{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: rgba(255,255,255,.65);
+    margin: 0;
+  }
+  .reassure .golden-text{ margin-inline: .5em; }
+
+  .watch-cta{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255,255,255,.85);
+    margin: 4px 0 0;
+    max-width: 460px;
+  }
+  .watch-cta .golden-text{ font-weight: 800; }
+
+  .site-footer {
+    background-color: rgba(7, 26, 17, 0.97);
+    border-top: 2px solid rgba(212,175,55,0.45);
+    padding: 28px 20px;
+    margin-top: 0;
+  }
+  .footer-inner{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-footer p{ font-size: 15px; margin: 0; color: rgba(255,255,255,.75); }
+  .site-footer a{ color: rgba(255,255,255,.75); }
+  .footer-disclaimer{
+    max-width: 900px;
+    margin: 0 auto 14px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.45);
+    text-align: center;
+  }
+
+  @media (max-width: 575px) {
+    .hero-wrap{ padding: 28px 18px; gap: 18px; }
+    .eyebrow{ font-size: .95rem; }
+    h1{ font-size: 2.3rem; }
+    .quote-box p{ font-size: 1.3rem; }
+    .watch-cta{ font-size: 1.45rem; line-height: 1.35; }
+    .btn-primary{ width: 100%; justify-content: center; font-size: 1.2rem; padding: 18px 28px; }
+    .reassure{ font-size: 1rem; }
+    .footer-inner{ flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="overlay-pattern"></div>
+
+<div class="hero-wrap">
+  <p class="watch-cta">Clique no botão abaixo para assistir a apresentação do <span class="golden-text">truque da babosa</span></p>
+
+  <!-- TROQUE O href ABAIXO PELO LINK DE DESTINO REAL (checkout, VSL, etc.) -->
+  <a class="btn-primary" href="#">
+    Assistir Agora
+    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l8 5-8 5V3z" fill="currentColor"/></svg>
+  </a>
+
+  <p class="reassure">100% natural<span class="golden-text">·</span>leva menos de 2 minutos</p>
+</div>
+
+<footer class="site-footer">
+  
+  <div class="footer-inner">
+    <p>© 2026 · Babosa App</p>
+    <p>Contato: <a href="mailto:suporte@babosaapp.com">suporte@babosaapp.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
