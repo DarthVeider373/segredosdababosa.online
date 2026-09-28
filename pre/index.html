@@ -186,6 +186,13 @@
     <p>Contato: <a href="mailto:suporte@babosaapp.com">suporte@babosaapp.com</a></p>
   </div>
 </footer>
+  <script>
+document.querySelectorAll('a[href*="/babosa/"]').forEach(function(a){
+  var u = new URL(a.href);
+  new URLSearchParams(location.search).forEach(function(v,k){ u.searchParams.set(k,v); });
+  a.href = u.toString();
+});
+</script>
 
 </body>
 </html>
